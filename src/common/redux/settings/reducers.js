@@ -1,4 +1,3 @@
 export const updates = (state, action) => {
-    return {...state, ...action.payload};
-  };
-  
+  return {...state, ...action.payload};
+};

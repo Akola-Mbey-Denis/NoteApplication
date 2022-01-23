@@ -11,7 +11,7 @@
  import React from 'react';
 import {Provider} from 'react-redux';
 import {PersistGate} from 'redux-persist/integration/react';
-import Navigator from './src/navigation/navigator';
+import Navigator from './src/navigation/Navigator';
 import {persistor, store} from './src/common/redux/store';
 import Wrapper from './src/wrapper/wrapper';
 

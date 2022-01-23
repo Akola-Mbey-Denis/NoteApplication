@@ -1,16 +1,6 @@
 import mockAsyncStorage from '@react-native-async-storage/async-storage/jest/async-storage-mock';
 import 'react-native-gesture-handler/jestSetup';
 
-jest.mock('react-native-reanimated', () => {
-  const Reanimated = require('react-native-reanimated/mock');
-
-  // The mock for `call` immediately calls the callback which is incorrect
-  // So we override it with a no-op
-  Reanimated.default.call = () => {};
-
-  return Reanimated;
-});
-
 // Silence the warning: Animated: `useNativeDriver` is not supported because the native animated module is missing
 jest.mock('react-native/Libraries/Animated/NativeAnimatedHelper');
 
@@ -25,3 +15,40 @@ jest.mock('redux-persist', () => {
       .mockImplementation((config, reducers) => reducers),
   };
 });
+
+jest.mock('@react-navigation/native', () => {
+  const actualNav = jest.requireActual('@react-navigation/native');
+  return {
+    ...actualNav,
+    useNavigation: () => ({
+      navigate: jest.fn(),
+      dispatch: jest.fn(),
+    }),
+  };
+});
+
+jest.mock('react-native-vector-icons/MaterialIcons', () => 'Icon');
+
+jest.mock('react-native-vector-icons/FontAwesome', () => 'Icon');
+
+jest.mock('react-native-vector-icons/Entypo', () => 'Icon');
+
+jest.mock('react-native-vector-icons/EvilIcons', () => 'Icon');
+
+jest.mock('react-native-vector-icons/Feather', () => 'Icon');
+
+jest.mock('react-native-vector-icons/Foundation', () => 'Icon');
+
+jest.mock('react-native-vector-icons/Ionicons', () => 'Icon');
+
+jest.mock('react-native-vector-icons/MaterialCommunityIcons', () => 'Icon');
+
+jest.mock('react-native-vector-icons/Octicons', () => 'Icon');
+
+jest.mock('react-native-vector-icons/SimpleLineIcons', () => 'Icon');
+
+jest.mock('react-native-vector-icons/Zocial', () => 'Icon');
+
+jest.mock('react-native-htmlview', () => 'HTMLView');
+
+jest.mock('react-native-modal', () => 'Modal');
