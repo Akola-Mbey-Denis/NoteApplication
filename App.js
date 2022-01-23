@@ -13,12 +13,15 @@ import {Provider} from 'react-redux';
 import {PersistGate} from 'redux-persist/integration/react';
 import Navigator from './src/navigation/navigator';
 import {persistor, store} from './src/common/redux/store';
+import Wrapper from './src/wrapper/wrapper';
 
 const App = () => {
   return (
     <Provider store={store}>
       <PersistGate persistor={persistor}>
+      <Wrapper>
         <Navigator />
+        </Wrapper>
       </PersistGate>
     </Provider>
   );
