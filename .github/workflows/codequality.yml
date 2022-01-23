@@ -1,0 +1,31 @@
+name: CodeQuality
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Getting the repo
+        uses: actions/checkout@v2
+
+      - name: Installing node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+
+      - name: Install React Native CLI
+        run: yarn global add react-native-cli
+
+      - name: Install yarn dependencies
+        run: yarn install
+
+      - name: Running test
+        run: |
+          yarn lint
+          yarn test
