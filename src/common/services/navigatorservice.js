@@ -1,9 +1,10 @@
+import {StackActions} from '@react-navigation/native';
 import * as React from 'react';
 import {routes} from '../constants';
 
 export const isMountedRef = React.createRef();
 
-export const navigatorRef = React.createRef;
+export const navigatorRef = React.createRef();
 
 export const navigate = (name, params) => {
   if (isMountedRef.current && navigatorRef.current) {
@@ -24,10 +25,29 @@ export const dispatchNavAction = (action) => {
   }
 };
 
+export const onNavigatorReady = () => {
+  isMountedRef.current = true;
+};
+
+export const navigateToBottomTab = () => {
+  //For more information about stackActions see the official docs:https://reactnavigation.org/docs/stack-actions/
+  dispatchNavAction(StackActions.replace(routes.bottomTab));
+};
+
+export const getNavigateToBottomTab = () => {
+  return () => {
+    dispatchNavAction(StackActions.replace(routes.bottomTab));
+  };
+};
+
 export const getOpenEditor = (noteId) => {
   return () => navigate(routes.editor, {noteId});
 };
 
-export const onNavigatorReady = () => {
-  isMountedRef.current = true;
+export const openEditor = () => {
+  return navigate(routes.editor, {});
+};
+
+export const openSetting = () => {
+  return navigate(routes.settings, {});
 };
