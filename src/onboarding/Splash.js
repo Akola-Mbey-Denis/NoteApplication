@@ -1,11 +1,11 @@
 import React from 'react';
-import {Text, View} from 'react-native';
-import Container from '../common/styled/container';
+import Logo from '../common/assets/logo.svg';
+import Container from '../common/styled/Container'
 
 const Splash = () => {
   return (
     <Container>
-      <Text style={{fontSize: 50, marginTop: 90}}>Splash Screen</Text>
+      <Logo width={200} height={200} />
     </Container>
   );
 };

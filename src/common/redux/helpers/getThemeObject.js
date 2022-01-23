@@ -1,4 +1,4 @@
-import {themes} from '../constants';
+import {themes} from '../../constants';
 
 const getThemeObject = (mode, system) => {
   if (mode === 'system') {
