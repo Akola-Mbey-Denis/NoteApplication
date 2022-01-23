@@ -1,11 +1,12 @@
 import React from 'react';
 import {Text, View} from 'react-native';
+import Container from '../common/styled/container';
 
 const Splash = () => {
   return (
-    <View>
+    <Container>
       <Text style={{fontSize: 50, marginTop: 90}}>Splash Screen</Text>
-    </View>
+    </Container>
   );
 };
 
