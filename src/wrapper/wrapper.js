@@ -1,0 +1,22 @@
+import React, {ReactNode} from 'react';
+import {StatusBar} from 'react-native';
+import {ThemeProvider} from 'styled-components/native';
+import useTheme from '../common/hooks/useTheme';
+
+
+const Wrapper = (props) => {
+  const {theme} = useTheme();
+
+  return (
+    <ThemeProvider theme={theme}>
+      <StatusBar
+        translucent
+        barStyle={theme.barStyle}
+        backgroundColor="transparent"
+      />
+      {props.children}
+    </ThemeProvider>
+  );
+};
+
+export default Wrapper;
