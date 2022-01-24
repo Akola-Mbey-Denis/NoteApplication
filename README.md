@@ -29,7 +29,6 @@ This template follows a very simple project structure:
   - `assets`: Asset folder to store all images, vectors, etc.
   - `components`: Folder to store any common component that you use through your app (such as a generic button)
   - `constants`: Folder to store any kind of constant that you have.
-  - `controllers`: Folder to store all your network logic (you should have one controller per resource).
   - `navigation`: Folder to store the navigators.
   - `reducers`: This folder should have all your reducers, and expose the combined result using its `index.js`
   - `screens`: Folder that contains all your application screens/features.
